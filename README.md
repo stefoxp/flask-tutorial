@@ -31,3 +31,10 @@ Per visualizzare la pagina di registrazione: http://127.0.0.1:5000/auth/register
 ## Static Files
 
 ## Blog Blueprint
+
+## Make the Project Installable
+
+```bash
+# install your project in the virtual environment
+py -m pip install -e .
+```
