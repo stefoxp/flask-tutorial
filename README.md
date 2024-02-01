@@ -14,3 +14,10 @@ py -m flask --app flaskr run --debug
 ```
 
 per visualizzare il risultato: http://127.0.0.1:5000/hello
+
+## Define and Access the Database
+
+```bash
+# Run the init-db command
+py -m flask --app flaskr init-db
+```
