@@ -29,3 +29,5 @@ py -m flask --app flaskr init-db
 Per visualizzare la pagina di registrazione: http://127.0.0.1:5000/auth/register
 
 ## Static Files
+
+## Blog Blueprint
