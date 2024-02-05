@@ -15,10 +15,11 @@ def test_index(client, auth):
     assert b'test\nbody' in response.data
     assert b'href="/1/update"' in response.data
 
+
 @pytest.mark.parametrize('path', (
-    '/create',
-    '/1/update',
-    '/1/delete',
+        '/create',
+        '/1/update',
+        '/1/delete',
 ))
 def test_login_required(client, path):
     response = client.post(path)
@@ -41,12 +42,13 @@ def test_author_required(app, client, auth):
 
 
 @pytest.mark.parametrize('path', (
-    '/2/update',
-    '/2/delete',
+        '/2/update',
+        '/2/delete',
 ))
 def test_exists_required(client, auth, path):
     auth.login()
     assert client.post(path).status_code == 404
+
 
 def test_create(client, auth, app):
     auth.login()
@@ -71,13 +73,14 @@ def test_update(client, auth, app):
 
 
 @pytest.mark.parametrize('path', (
-    '/create',
-    '/1/update',
+        '/create',
+        '/1/update',
 ))
 def test_create_update_validate(client, auth, path):
     auth.login()
     response = client.post(path, data={'title': '', 'body': ''})
     assert b'Title is required.' in response.data
+
 
 def test_delete(client, auth, app):
     auth.login()

@@ -17,9 +17,9 @@ def test_register(client, app):
 
 
 @pytest.mark.parametrize(('username', 'password', 'message'), (
-    ('', '', b'Username is required.'),
-    ('a', '', b'Password is required.'),
-    ('test', 'test', b'already registered'),
+        ('', '', b'Username is required.'),
+        ('a', '', b'Password is required.'),
+        ('test', 'test', b'already registered'),
 ))
 def test_register_validate_input(client, username, password, message):
     response = client.post(
@@ -27,6 +27,7 @@ def test_register_validate_input(client, username, password, message):
         data={'username': username, 'password': password}
     )
     assert message in response.data
+
 
 def test_login(client, auth):
     assert client.get('/auth/login').status_code == 200
@@ -40,12 +41,13 @@ def test_login(client, auth):
 
 
 @pytest.mark.parametrize(('username', 'password', 'message'), (
-    ('a', 'test', b'Incorrect username.'),
-    ('test', 'a', b'Incorrect password.'),
+        ('a', 'test', b'Incorrect username.'),
+        ('test', 'a', b'Incorrect password.'),
 ))
 def test_login_validate_input(auth, username, password, message):
     response = auth.login(username, password)
     assert message in response.data
+
 
 def test_logout(client, auth):
     auth.login()

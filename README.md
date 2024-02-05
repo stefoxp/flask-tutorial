@@ -65,7 +65,10 @@ coverage html
 
 ## Deploy to Production
 
-This part of the tutorial assumes you have a server that you want to deploy your application to. It gives an overview of how to create the distribution file and install it, but won’t go into specifics about what server or software to use. You can set up a new environment on your development computer to try out the instructions below.
+This part of the tutorial assumes you have a server that you want to deploy your application to. 
+It gives an overview of how to create the distribution file and install it, 
+but won’t go into specifics about what server or software to use. You can set up a new environment on
+your development computer to try out the instructions below.
 
 ### Build and Install
 
@@ -88,7 +91,8 @@ Since this is a different machine, you need to run init-db again to create the d
 py -m flask --app flaskr init-db
 ```
 
-When Flask detects that it’s installed (not in editable mode), it uses a different directory for the instance folder. You can find it at .venv/var/flaskr-instance instead.
+When Flask detects that it’s installed (not in editable mode), it uses a different directory for the instance folder. 
+You can find it at .venv/var/flaskr-instance instead.
 
 ### Configure the Secret Key
 
@@ -106,7 +110,8 @@ SECRET_KEY = '192b9bdd22ab9ed4d12e236c78afcb9a393ec15f71bbf5dc987d54727823bcbf'
 
 ### Run with a Production Server
 
-When running publicly rather than in development, you should not use the built-in development server (flask run). The development server is provided by Werkzeug for convenience, but is not designed to be particularly efficient, stable, or secure.
+When running publicly rather than in development, you should not use the built-in development server (flask run). 
+The development server is provided by Werkzeug for convenience, but is not designed to be particularly efficient, stable, or secure.
 
 Instead, use a production WSGI server. For example, to use Waitress, first install it in the virtual environment:
 
@@ -114,7 +119,8 @@ Instead, use a production WSGI server. For example, to use Waitress, first insta
 py -m pip install waitress
 ```
 
-You need to tell Waitress about your application, but it doesn’t use --app like flask run does. You need to tell it to import and call the application factory to get an application object.
+You need to tell Waitress about your application, but it doesn't use --app like flask run does. You need to tell it 
+to import and call the application factory to get an application object.
 
 ```bash
 waitress-serve --call 'flaskr:create_app'
@@ -122,4 +128,5 @@ waitress-serve --call 'flaskr:create_app'
 
 Serving on http://0.0.0.0:8080
 
-Waitress is just an example, chosen for the tutorial because it supports both Windows and Linux. There are many more WSGI servers and deployment options that you may choose for your project.
+Waitress is just an example, chosen for the tutorial because it supports both Windows and Linux. 
+There are many more WSGI servers and deployment options that you may choose for your project.
